@@ -1,0 +1,11 @@
+name: Build Signed APK
+
+on:
+  push:
+    tags: [ "v*" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: redgerble-prog/keys/.github/workflows/reusable-sign-apk.yml@main
+    secrets: inherit

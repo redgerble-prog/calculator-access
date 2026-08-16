@@ -29,6 +29,7 @@ import androidx.compose.ui.semantics.LiveRegionMode
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.textEntryKey
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -218,25 +219,25 @@ private fun Keypad(
             CalculatorButton("÷", "Divide", Modifier.weight(1f), operator = true) { onOperator("÷") }
         }
         KeypadRow {
-            CalculatorButton("7", "Button 7", Modifier.weight(1f)) { onDigit("7") }
-            CalculatorButton("8", "Button 8", Modifier.weight(1f)) { onDigit("8") }
-            CalculatorButton("9", "Button 9", Modifier.weight(1f)) { onDigit("9") }
+            CalculatorButton("7", "", Modifier.weight(1f)) { onDigit("7") }
+            CalculatorButton("8", "", Modifier.weight(1f)) { onDigit("8") }
+            CalculatorButton("9", "", Modifier.weight(1f)) { onDigit("9") }
             CalculatorButton("×", "Multiply", Modifier.weight(1f), operator = true) { onOperator("×") }
         }
         KeypadRow {
-            CalculatorButton("4", "Button 4", Modifier.weight(1f)) { onDigit("4") }
-            CalculatorButton("5", "Button 5", Modifier.weight(1f)) { onDigit("5") }
-            CalculatorButton("6", "Button 6", Modifier.weight(1f)) { onDigit("6") }
+            CalculatorButton("4", "", Modifier.weight(1f)) { onDigit("4") }
+            CalculatorButton("5", "", Modifier.weight(1f)) { onDigit("5") }
+            CalculatorButton("6", "", Modifier.weight(1f)) { onDigit("6") }
             CalculatorButton("-", "Minus", Modifier.weight(1f), operator = true) { onOperator("-") }
         }
         KeypadRow {
-            CalculatorButton("1", "Button 1", Modifier.weight(1f)) { onDigit("1") }
-            CalculatorButton("2", "Button 2", Modifier.weight(1f)) { onDigit("2") }
-            CalculatorButton("3", "Button 3", Modifier.weight(1f)) { onDigit("3") }
+            CalculatorButton("1", "", Modifier.weight(1f)) { onDigit("1") }
+            CalculatorButton("2", "", Modifier.weight(1f)) { onDigit("2") }
+            CalculatorButton("3", "", Modifier.weight(1f)) { onDigit("3") }
             CalculatorButton("+", "Plus", Modifier.weight(1f), operator = true) { onOperator("+") }
         }
         KeypadRow {
-            CalculatorButton("0", "Button 0", Modifier.weight(2f)) { onDigit("0") }
+            CalculatorButton("0", "", Modifier.weight(2f)) { onDigit("0") }
             CalculatorButton(".", "Decimal point", Modifier.weight(1f)) { onDecimal() }
             CalculatorButton("=", "Equals", Modifier.weight(1f), operator = true) { onEquals() }
         }
@@ -279,6 +280,7 @@ private fun CalculatorButton(
             .height(76.dp)
             .semantics {
                 this.contentDescription = contentDescription
+                textEntryKey()
             },
         shape = RoundedCornerShape(20.dp),
         colors = ButtonDefaults.buttonColors(
